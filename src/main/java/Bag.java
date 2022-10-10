@@ -82,8 +82,13 @@ public abstract class Bag {
 
     public Boolean addItem(String item){
         if (this.getNumberOfContents() < this.getCapacity()){
+            if (this.numberOfContents == 0){
+                this.contents[0] = item;
+            }
+            else {
+                this.contents[this.numberOfContents] = item;
+            }
             this.numberOfContents += 1;
-            this.contents[0] = item;
             return true;
         }
         return false;
